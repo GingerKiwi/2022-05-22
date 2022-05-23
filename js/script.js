@@ -1,7 +1,4 @@
-// import OPEN_API_KEY from "./apikey.js";
-//Note: the repo name is purposely vague as I haven't managed to run the app with the key hidden
-// I did try on Netlify:    cd js && echo -e "const OPEN_API_KEY = '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';\n\nexport default OPEN_API_KEY;" > test.js"
-const OPEN_API_KEY = "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";
+import OPEN_API_KEY from "./apikey.js";
 let query = document.getElementById("question-input");
 const answercontainer = document.getElementById("answercontainer");
 const enginechoice = document.getElementById("engine-choice");
