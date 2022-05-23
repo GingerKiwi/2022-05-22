@@ -1,0 +1,381 @@
+/* ------------------- */
+/* Custom Properties   */
+/* ------------------- */
+
+
+/* root {} */
+:root {
+  --clr-dark: 230 35% 7%;
+  --clr-light: 231 77% 90%;
+  --clr-white: 0 0% 100%;
+  
+  /* font-sizes */
+  --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem); 
+  --fs-800: 3.5rem;
+  --fs-700: 1.5rem;
+  --fs-600: 1rem;
+  --fs-500: 1.75rem;
+  --fs-400: 0.9375rem;
+  --fs-300: 1rem;
+  --fs-200: 0.875rem;
+  
+  /* font families */
+  --ff-serif: "Dico Typewriter", "Cambria", serif;
+  --ff-sans-cond: "Magistral Condensed", sans-serif;
+  --ff-sans-special: "Magistral Bold", sans-serif;
+  --ff-sans-normal: "Bernini Sans", sans-serif;
+  }
+  
+  /* media screen sizes */
+      /* ->tablet - 35rem */
+  
+      /* ->Laptop/desktop 760px = 45rem */
+  
+  /* ------------------- */
+  /* CSS Reset           */
+  /* ------------------- */
+  
+  /* https://piccalil.li/blog/a-modern-css-reset/ */
+  
+  /* Box Sizing */
+  
+  *,
+  *::before,
+  *::after {
+      box-sizing: border-box;
+  }
+  
+  /* Reset Margins */
+  
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p,
+  figure,
+  picture {
+      margin: 0;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6, 
+  p {
+      font-weight: 400;
+  }
+  
+  /* Set Up The Body */
+  
+  body {
+      font-family: var(--ff-serif);
+      font-size: var(--fs-400);
+      color: hsl( var(--clr-white) );
+      background-color: hsl( var(--clr-dark) );
+      line-height: 1.5;
+      min-height: 100vh;
+      
+      display: grid;
+      grid-template-rows: min-content 1fr; /*helps the body take up the full height of the page. Avoids unnesseary space between header and body */
+      overflow-x: hidden;
+  }
+
+  /* Make Images Easier to Work With */
+  img,
+  picture {
+      max-width: 100%;
+      display: block;
+  }
+  
+  /* Make Forms Easier to Work With */
+  
+  input,
+  button,
+  textarea,
+  select {
+      font: inherit;
+  }
+  
+  /* Remove Animations For People Who've Turned Them Off */
+      /* ->a11y: motion */
+  
+      @media (prefers-reduced-motion: reduce) {
+          *,
+          *::before,
+          *::after {
+              animation-duration: 0.01ms !important;
+              animation-iteration-count: 1 !important;
+              transform: 0.01ms !important;
+              scroll-behavior: auto !important;
+          }
+      }
+  
+  /* ------------------- */
+  /* Utility Classes     */
+  /* ------------------- */
+  
+  /* General */
+  .flex {
+      display: flex;
+      gap: var(--gap, 1rem);
+  }
+  
+  .grid {
+      display: grid;
+      gap: var(--gap, 1rem);
+  }
+  
+  .d-block {
+      display: block;
+  }
+  
+  /* --- Set Spacing Around Elements */
+  
+  .container {
+      padding-inline: 2em;
+      margin-inline: auto;
+      max-width: 80rem;
+      /* outline: 1px solid lime; */
+  }
+  
+  .grid-container {
+      /* border: 5px solid limegreen;  - > used for checking layout*/
+      display: grid;
+      text-align: center;
+      place-items: center; 
+      padding-inline: 1.25rem;
+  }
+  
+  .grid-container * {
+      max-width: 50ch;
+  }
+  
+  /* ->a11y: for screenreaders */
+  
+  .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap; /* added line */
+      border: 0;
+  }
+  
+  /* ->a11y: for keyboard navigating */
+  .skip-to-content {
+      position: absolute;
+      z-index: 9999;
+      background: hsl( var(--clr-white) );
+      color: hsl( var(--clr-dark) );
+      padding: aut0.5em 1em;
+      margin-inline: auto;
+      transform: translateY(-100%);
+      transition: transform 200ms ease-in;
+  }
+  
+  /* ->a11y: for keyboard navigating */
+  .skip-to-content:focus-visible {
+      transform: translateY(0);
+  }
+  
+  /* Colours */
+
+  /* Note: These are my standard starting point for colours and typography */
+  
+  .bg-dark { background-color: hsl( var(--clr-dark)); }
+  .bg-accent { background-color: hsl( var(--clr-light)); }
+  .bg-white { background-color: hsl( var(--clr-white)); }
+  
+  .text-dark { color: hsl( var(--clr-dark)); }
+  .text-accent { color: hsl( var(--clr-light)); }
+  .text-white { color: hsl( var(--clr-white)); }
+  
+  /* Typography */
+  
+  .ff-serif { font-family: var(--ff-serif); }
+  .ff-sans-cond { font-family: var(--ff-sans-cond); }
+  .ff-sans { font-family: var(--ff-sans-normal); }
+  
+  .letter-spacing-1 { letter-spacing: 4.75px; }
+  .letter-spacing-2 { letter-spacing: 2.7px; }
+  .letter-spacing-3 { letter-spacing: 2.35px; }
+  
+  .uppercase { text-transform: uppercase; }
+
+  .align-left {align-content: flex-start;}
+
+  .extra-line-spacing {margin-top: 1.5em;}
+  
+  .fs-900 { font-size: var(--fs-900); }
+  .fs-800 { font-size: var(--fs-800); }
+  .fs-700 { font-size: var(--fs-700); }
+  .fs-600 { font-size: var(--fs-600); }
+  .fs-500 { font-size: var(--fs-500); }
+  .fs-400 { font-size: var(--fs-400); }
+  .fs-300 { font-size: var(--fs-300); }
+  .fs-200 { font-size: var(--fs-200); }
+  
+  .fs-900,
+  .fs-800,
+  .fs-700,
+  .fs-600 {
+      line-height: 1.1;
+  }
+  
+  .numbered-title {
+      font-family: var(--ff-sans-cond);
+      font-size: var(--fs-500);
+      text-transform: uppercase;
+      letter-spacing: 4.72px;
+  }
+  
+  .numbered-title span {
+      margin-right: 0.5em;
+      font-weight: 700;
+      color: hsl( var(--clr-white) / 0.25)
+  }
+
+  .quote {
+    font-style: italic;
+    font-size: inherit;
+  }
+
+  .curriculum-links {
+    text-align: left;
+    font-family: var(--ff-sans);
+    font-size: var(--fs-400);
+  }
+
+  .curriculum-links a {
+    color: hsl( var(--clr-light));
+  }
+
+  /* ------------------- */
+  /* Components          */
+  /* ------------------- */
+  
+  .instructions {
+    background-color: hsl(0, 0%, 20%);
+    color: hsl( var(--clr-white) );
+    font-size: var(--fs-700);
+    font-family: var(--ff-sans-normal);
+    border-radius: 8px;
+    max-width: 45ch;
+    padding: 1rem;
+    margin: 2rem;
+    text-align: left;
+  }
+
+  .question-box {
+    margin-bottom: 1.5em;
+    margin-top: 1em;
+    padding: 1rem;
+    min-width: 25ch;
+  }
+  
+  .large-button {
+      font-size: 1rem;
+      position: relative;
+      z-index: 1; /*when combined with z-index: -1 on large-button::after this prevents the button colour change from being lost behind other elements such as background images */
+      display: inline-grid;
+      place-items: center;
+      padding: 2em 1em;
+      aspect-ratio: 1;
+      text-decoration: none;
+      border-radius: 50%;
+      
+  }
+  
+  
+  .large-button::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      background: hsl( var(--clr-white) / 0.3);
+      width: 100%;
+      height: 100%;
+      border-radius: 50%; /*could also do border-radius: inhert; */
+      opacity: 0;
+      transition: opacity 500ms linear, transform 750ms ease-in-out;
+  }
+  
+  .large-button:hover::after,
+  .large-button:focus::after {
+      opacity: 1;
+      transform: scale(1.5);
+  }
+
+  .answer-container {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 3em;
+    margin: 5em;
+  }
+  
+  .answer-card {
+    border: 5px hsl( var(--clr-white));
+    background-color: hsl( var(--clr-light));
+    font-family: var(--ff-sans-cond);
+    color: hsl( var(--clr-dark));
+    max-width: 45ch;
+    font-size: var(--fs-400);
+    text-align: left;
+    margin: 2.5em;
+    padding: 1em;
+    border-radius: 8px;
+    position: relative;
+    transition: left ease 0.5s;
+  }
+  
+  .answer-card:hover {
+    top: -5px;
+    box-shadow: 0 0 4px #515151;
+  }
+  
+  /* -------------------------- */
+  /* Page Specific Backgrounds  */
+  /* -------------------------- */
+  
+  .overlay {
+      position: fixed; /* Sit on top of the page content */
+      display: none; /* Hidden by default */
+      width: 100%; /* Full width (cover the whole page) */
+      height: 100%; /* Full height (cover the whole page) */
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+      z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+      cursor: pointer; /* Add a pointer on hover */
+    }
+  
+  /* Home */
+  /* a11y -> figure out how to set background img to null in css b/c bgimg is decorative only/isn't informational */
+  .home {
+      background-size: cover;
+      background-position: bottom center;
+      background-image: url(assets/shopify-background-mobile.png);
+  }
+  
+  @media (min-width: 35rem) {
+      .home {
+          background-position: center center; 
+          background-image: url(/assets/shopify-background-tablet.png);
+      }
+  }
+/*   --> For later development eg for front of classroom screens/projectors
+  @media (min-width: 55rem) {
+      .home {
+          background-position: center center;
+          background-image: url(/assets/shopify-background-desktop.png);
+      }
+  } */
+  

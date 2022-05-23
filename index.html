@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Connected Files -->
+    <link rel="stylesheet" href="app.css">
+
+    <!-- Adobe Typekit fonts -->
+        <link rel="stylesheet" href="https://use.typekit.net/los3xic.css">
+
+    <!-- Font Awesome -->
+        <script src="https://kit.fontawesome.com/f7d121694b.js" crossorigin="anonymous"></script>
+    
+    <title>Ask an AI</title>
+    <body class="home">
+        <a class="skip-to-content" href=#main>Skip to content</a>
+            <header class="primary-header flex">
+                <!-- <div>
+                    <img src="./assets/logo.svg" alt="Ask an AI logo" class="logo">
+                </div> -->
+                <!-- navigation -->                                  
+                    <button class="mobile-nav-toggle" aria-controls="primary-navigation"><span class="sr-only" aria-expanded="false">Menu</span></button>
+                    <nav>
+                        <ul id="primary-navigation" data-visible="false" class="primary-navigation underline-indicators flex">
+                            <li class="active"><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="index.html"> <span aria-hidden="true">00</span> Home</a>
+                            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="about.html"> <span aria-hidden="true">01</span> About: For Teachers</a>
+                        </ul>
+                    </nav>
+
+            </header>
+        <!-- a11y: main instead of div = semantic html -->
+            <main id="main" class="grid-container grid-container--about">
+                <!-- <div> -->
+                    <h1 class="text-accent fs-500 ff-sans-cond uppercase letter-spacing-1 extra-line-spacing">Ask an 
+                    <span class="fs-900 ff-serif text-white d-block">AI</span>
+                    </h1>
+                    <h2 class="fs-400 ff-sans-cond text-accent uppercase">An Activity for Students in Grades 7 and 8 <br>
+                        For the New 2022 Ontario Science Curriculum <br>
+                        ~ Look for updates and lesson plan in August, 2022.
+                    </h2>
+    
+                <div class="instructions"> <span>Ask an artifical intelligence a question!</span>
+                    <ul>
+                        <li>Try comparing the responses the different engines give to the same question.</li>
+                        <li>Why do you think the answers may be different?</li>
+                    </ul>
+                </div>
+
+                <div class="columns ff-sans-cond fs-500">
+                    <label for="engine">Choose an AI engine:</label>
+                    <select name="engine" id="engine-choice">
+                        <option value="Ada" id="ada">Ada</option>
+                        <option value="Curie" id="curie">Curie</option>
+                        <option value="Davinci" id="davinci">Davinci</option>
+                        <option value="Babbage" id="babbage">Babbage</option>
+                    </select>
+                </div>
+
+                <div>
+                    <form class="ff-sans-cond fs-500">
+                        <label for="question-input">Enter your question below</label>
+                        <br>
+                        <textarea name="question" id="question-input" class="question-box"></textarea>
+                        <div id="button">
+                            <button input type="submit" value="Submit" id="submit-button" class="large-button uppercase ff-sans-special text-dark bg-white">Submit</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="answercontainer" class="answer-container">
+                </div>
+    
+    </main>
+    
+    <script src="js/script.js"></script>
+    <script type="module" src="js/apikey.js"></script>
+</body>
+</html>
